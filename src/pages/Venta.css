@@ -1,0 +1,279 @@
+
+/* ========================================
+   KFE - MÓDULO DE VENTA
+   Catálogo, filtros, productos y ticket
+======================================== */
+
+/* Catálogo y filtros */
+
+.pos-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 32%);
+  align-items: start;
+  gap: 28px;
+}
+
+.catalog {
+  min-width: 0;
+}
+
+.catalog-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  margin-bottom: 23px;
+}
+
+.catalog-filters input,
+.catalog-filters select {
+  width: 100%;
+  min-width: 0;
+  height: 62px;
+  padding: 0 17px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  color: #24170f;
+  font-size: 18px;
+}
+
+.catalog-filters input::placeholder {
+  color: #897e74;
+  opacity: 1;
+}
+
+.catalog-filters select {
+  cursor: pointer;
+}
+
+/* Tarjetas de productos */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 152px;
+  padding: 23px 23px 20px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--card);
+  box-shadow: 0 12px 30px rgb(69 42 22 / 4%);
+  color: #24170f;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  border-color: #cba77f;
+  box-shadow: 0 12px 28px rgb(69 42 22 / 9%);
+}
+
+.product-card:active {
+  transform: scale(0.985);
+}
+
+.product-name {
+  margin-bottom: 9px;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.product-category {
+  margin-bottom: 15px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.product-price {
+  margin-top: auto;
+  color: var(--coffee-price);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  padding: 24px;
+  color: var(--muted);
+}
+
+/* Ticket de venta */
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 518px;
+  padding: 27px 25px 25px;
+  border-radius: 25px;
+  background: var(--card);
+  box-shadow: 0 18px 48px rgb(69 42 22 / 6%);
+}
+
+.ticket h2 {
+  margin: 0 0 28px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.ticket-items {
+  flex: 1;
+  min-height: 120px;
+}
+
+.empty-ticket {
+  margin: 0;
+  padding: 19px 0 15px;
+  border-bottom: 1px dashed var(--border);
+  color: var(--muted);
+  font-size: 17px;
+  text-align: center;
+}
+
+.ticket-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid #eee4d9;
+}
+
+.ticket-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ticket-item-info strong {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.ticket-item-info span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Controles de cantidad */
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-control button {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  border: 0;
+  border-radius: 9px;
+  background: #f0e6da;
+  color: var(--coffee-dark);
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.quantity-control button:hover {
+  background: #e5d1ba;
+}
+
+.quantity-control span {
+  min-width: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.item-subtotal {
+  grid-column: 1 / -1;
+  justify-self: end;
+  color: var(--coffee-price);
+  font-size: 14px;
+}
+
+/* Total y botones del ticket */
+
+.ticket-bottom {
+  margin-top: auto;
+}
+
+.ticket-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 25px 0 24px;
+  font-size: 23px;
+}
+
+.ticket-total strong {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ticket-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ticket-actions button,
+.button-checkout {
+  min-height: 59px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 17px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.button-clear {
+  background: #f0e7dc;
+  color: #24170f;
+}
+
+.button-clear:hover {
+  background: #e6d7c5;
+}
+
+.button-checkout {
+  background: var(--coffee-accent);
+  color: white;
+}
+
+.button-checkout:hover {
+  background: #8F2929;
+}
+
+.ticket-message {
+  margin: 0 0 12px;
+  color: var(--coffee-accent);
+  font-size: 14px;
+}
+
+.pos-layout,
+.pos-layout *,
+.pos-layout *::before,
+.pos-layout *::after {
+  font-family: 'Roboto', sans-serif !important;
+}
